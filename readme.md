@@ -35,7 +35,7 @@ Before using this repository, make sure you have the following prerequisites in 
 To illustrate some basic HTTP API calls the file `req_autorecord_secquence.http` get's you started.
 
 ## Output file format
-If you wish to transform the output RTSA file records to another file format please see the RTSAFileTool in your installation directory. It also offers RAQ IQ File output. It is a CLI tool that can be included in scripting for automation.
+If you wish to transform the output RTSA file records to another file format please see the RTSAFileTool in the RTSA installation directory. It also offers RAW IQ file output. It is a CLI tool that can be included in scripting for automation.
 
 
 ## Contributing
