@@ -77,7 +77,7 @@ def main():
 
 
 def eval_response_ok( pResponse ):
-    if pResponse.status_code is not 200:
+    if pResponse.status_code != 200:
         pResponse.raise_for_status()
 
 def query_remote_config():
