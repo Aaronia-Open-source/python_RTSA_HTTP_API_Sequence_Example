@@ -1,0 +1,199 @@
+
+####################### query remote available remote config
+GET http://localhost:54665/remoteconfig 
+
+######################## stop v6
+
+PUT http://localhost:54665/remoteconfig HTTP/1.1
+
+{
+  "request": 11,
+  "receiverName": "Block_Spectran_V6B_0",
+  "config": {
+    "type": "group",
+    "items": [
+      {
+        "type": "group",
+        "name": "main",
+        "items": [
+          {
+            "type": "bool",
+            "name": "run",
+            "value": false
+          }
+        ]
+      }
+    ]
+  }
+}
+
+######################## start V6
+
+PUT http://localhost:54665/remoteconfig HTTP/1.1
+
+{
+  "request": 11,
+  "receiverName": "Block_Spectran_V6B_0",
+  "config": {
+    "type": "group",
+    "items": [
+      {
+        "type": "group",
+        "name": "main",
+        "items": [
+          {
+            "type": "bool",
+            "name": "run",
+            "value": true
+          }
+        ]
+      }
+    ]
+  }
+}
+
+######################## amps Auto
+
+PUT http://localhost:54665/remoteconfig HTTP/1.1
+
+{
+  "request": 11,
+  "receiverName": "Block_Spectran_V6B_0",
+  "config": {
+    "type": "group",
+    "items": [
+      {
+        "type": "group",
+        "name": "calibration",
+        "items": [
+          {
+            "type": "string",
+            "name": "preamp",
+            "value": "Auto"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+
+
+######################## reflevel to -36 (now, that the amp is switched to auto)
+
+PUT http://localhost:54665/remoteconfig HTTP/1.1
+
+{
+  "request": 11,
+  "receiverName": "Block_Spectran_V6B_0",
+  "config": {
+    "type": "group",
+    "items": [
+      {
+        "type": "group",
+        "name": "main",
+        "items": [
+          {
+            "type": "float",
+            "name": "reflevel",
+            "value": -35
+          }
+        ]
+      }
+    ]
+  }
+}
+
+
+######################## v6 centerfreq
+
+PUT http://localhost:54665/remoteconfig HTTP/1.1
+
+{
+  "request": 11,
+  "receiverName": "Block_Spectran_V6B_0",
+  "config": {
+    "type": "group",
+    "items": [
+      {
+        "type": "group",
+        "name": "main",
+        "items": [
+          {
+            "type": "float",
+            "name": "centerfreq",
+            "value": 103000000
+          }
+        ]
+      }
+    ]
+  }
+}
+
+
+######################## set filewriter file name
+
+PUT http://localhost:54665/remoteconfig HTTP/1.1
+
+
+{
+    "flags": "",
+  "receiverName": "Block_FileWriter_0",
+  "config": {
+    "type": "group",
+    "name": "Block_FileWriter_0",
+    "label": "File Writer",
+    "flags": "",
+    "items": [
+      {
+        "type": "file",
+        "name": "filename",
+        "file": "/tmp/out.rtsa"        
+      }
+    ]
+  }
+}
+
+######################## start filewriter
+
+PUT http://localhost:54665/remoteconfig HTTP/1.1
+
+
+{
+  "receiverName": "Block_FileWriter_0",
+  "config": {
+    "type": "group",
+    "name": "Block_FileWriter_0",
+    "label": "File Writer",
+    "flags": "",
+    "items": [
+      {
+        "type": "bool",
+        "name": "filerecord",
+        "value": true      
+      }
+    ]
+  }
+}
+
+######################## stop filewriter
+
+PUT http://localhost:54665/remoteconfig HTTP/1.1
+
+
+{
+  "receiverName": "Block_FileWriter_0",
+  "config": {
+    "type": "group",
+    "name": "Block_FileWriter_0",
+    "label": "File Writer",
+    "flags": "",
+    "items": [
+      {
+        "type": "bool",
+        "name": "filerecord",
+        "value": false      
+      }
+    ]
+  }
+}

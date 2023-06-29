@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mission>
+    <General GUID="7643af8d-61d2-4496-8ddf-d32b272cbfe0" Version="RMIX_2016-09-30-1" Build="13307" SaveDate="2023-06-29T08:54:09,597" SaveBuild="2.2.4.13307" CreatedDate="2023-06-29T06:22:24,685" CreatedBuild="2.2.4.13307">
+        <ConfigItem Name="missionConfig" Class="group" Type="0">
+            <ConfigItem Name="general" Class="group" Type="0">
+                <ConfigItem Name="saveCompressed" Class="bool" Type="6" Val="0"/>
+                <ConfigItem Name="misVer" Class="string" Type="3" Val="1.0"/>
+                <ConfigItem Name="preventShutdown" Class="bool" Type="6" Val="0"/>
+            </ConfigItem>
+        </ConfigItem>
+        <ConfigItem Name="rocManConfig" Class="group" Type="0">
+            <ConfigItem Name="rocAutoConnect" Class="bool" Type="6" Val="0"/>
+            <ConfigItem Name="rocItems" Class="group" Type="0"/>
+        </ConfigItem>
+        <ConfigItem Name="appBlockContainerDerivedFactoryConfig" Class="group" Type="0">
+            <DerivedFactories/>
+        </ConfigItem>
+    </General>
+    <Data>
+        <Bases>
+            <ChildBases>
+                <Base ClassName="WaterfallMarkers" ParentBlock="Block_Waterfall_0" GUID="50883b2e-036d-4d95-840f-73234faa645b" Factory="Factory_Waterfall" Name="Block_Waterfall_0#WaterfallMarkers" Title="Waterfall - Waterfall Markers"/>
+            </ChildBases>
+            <Base GUID="a8182d15-e793-4a84-bcc7-f80a9c0c9d24" Factory="Factory_BlockEditor" Name="Base_BlockEditor" Title="Blockgraph Editor" AppBlock="1"/>
+            <Base GUID="648b82d1-5190-4b93-a3f9-cac900109076" Factory="Factory_ROC" Name="Base_ROC" Title="ROC" AppBlock="1"/>
+            <Base GUID="8fbd54c5-b9f7-4048-870b-d7a5af8afebc" Factory="Factory_HealthMonitor" Name="Base_HealthMonitor" Title="Health Monitor" AppBlock="1"/>
+            <Base GUID="0c4255ab-80c5-4155-ab07-ed4b25759125" Factory="Factory_Spectran_V6B" Name="Block_Spectran_V6B_0" Title="SPECTRAN V6">
+                <ConfigItem Name="Block_Spectran_V6B_0_config" Class="group" Type="0">
+                    <ConfigItem Name="main" Class="group" Type="0" Expanded="1">
+                        <ConfigItem Name="centerfreq" Class="float" Type="2" Val="144800000" SubUnitName="MHz"/>
+                        <ConfigItem Name="decimation" Class="enum" Type="7" Val="6" SVal="1 / 64" Names="Full,1 / 2,1 / 4,1 / 8,1 / 16,1 / 32,1 / 64,1 / 128,1 / 256,1 / 512"/>
+                        <ConfigItem Name="reflevel" Class="float" Type="2" Val="-35" SubUnitName="dBm"/>
+                    </ConfigItem>
+                    <ConfigItem Name="calibration" Class="group" Type="0">
+                        <ConfigItem Name="preamp" Class="enum" Type="7" Val="1" SVal="Auto" Names="Disabled,Auto,None,Amp,Preamp,Both"/>
+                        <ConfigItem Name="SpectranV6BNotch1" Class="group" Type="0">
+                            <ConfigItem Name="frequency" Class="float" Type="2" Val="92159997.44062509" SubUnitName="MHz"/>
+                        </ConfigItem>
+                        <ConfigItem Name="SpectranV6BSampComb1" Class="group" Type="0">
+                            <ConfigItem Name="delay" Class="float" Type="2" Val="209714.8"/>
+                            <ConfigItem Name="bypass" Class="bool" Type="6" Val="0"/>
+                        </ConfigItem>
+                    </ConfigItem>
+                </ConfigItem>
+                <Inputs>
+                    <Input Name="Input_Antenna_0" Title="RF1" Owner="Block_Spectran_V6B_0"/>
+                    <Input Name="Input_Antenna2_0" Title="RF2" Owner="Block_Spectran_V6B_0"/>
+                    <Input Name="Input_Spectran_V6B_IQ_0" Title="IQStream1" Owner="Block_Spectran_V6B_0"/>
+                </Inputs>
+                <Outputs>
+                    <Output Name="Output_Spectran_V6B_IQ_0" Title="IQStream1" Owner="Block_Spectran_V6B_0">
+                        <Connections>
+                            <Connection Name="Input_FileWriter_Spectra_0" Title="Stream" Owner="Block_FileWriter_0"/>
+                            <Connection Name="Input_IQ_0" Title="IQ" Owner="Block_IQPowerSpectrum_0"/>
+                            <Connection Name="Input_ControlSequencer_0" Title="Input 1" Owner="ControlSequencer_0"/>
+                        </Connections>
+                    </Output>
+                    <Output Name="Output_Spectran_V6B_IQ2_0" Title="IQStream2" Owner="Block_Spectran_V6B_0"/>
+                    <Output Name="Output_Spectran_V6B_Spectra1_0" Title="Spectra1" Owner="Block_Spectran_V6B_0"/>
+                    <Output Name="Output_Spectran_V6B_Spectra2_0" Title="Spectra2" Owner="Block_Spectran_V6B_0"/>
+                    <Output Name="Output_Spectran_V6B_GPS_0" Title="Location" Owner="Block_Spectran_V6B_0"/>
+                    <Output Name="Output_Spectran_V6B_TX_0" Title="Tx" Owner="Block_Spectran_V6B_0"/>
+                </Outputs>
+            </Base>
+            <Base GUID="1af9ff43-30b8-4162-894c-93e6342f05ea" Factory="Factory_Http_Server" Name="Block_HTTPServer_0" Title="HTTP Server">
+                <ConfigItem Name="Block_HTTPServer_0_config" Class="group" Type="0">
+                    <ConfigItem Name="main" Class="group" Type="0" Expanded="1"/>
+                    <ConfigItem Name="connection" Class="group" Type="0" Expanded="1">
+                        <ConfigItem Name="port" Class="integer" Type="1" Val="54665"/>
+                    </ConfigItem>
+                </ConfigItem>
+                <Inputs>
+                    <Input Name="Input_Http_Stream_0" Title="Stream" Owner="Block_HTTPServer_0"/>
+                </Inputs>
+                <Outputs>
+                    <Output Name="Output_Http_Stream_0" Title="Stream" Owner="Block_HTTPServer_0"/>
+                </Outputs>
+            </Base>
+            <Base GUID="53456b47-2c0d-470b-acad-6651c5b8a581" Factory="Factory_FileWriter" Name="Block_FileWriter_0" Title="File Writer">
+                <ConfigItem Name="Block_FileWriter_0_config" Class="group" Type="0">
+                    <ConfigItem Name="main" Class="group" Type="0" Expanded="1">
+                        <ConfigItem Name="filename" Class="file" Type="4" Val="/tmp/f_144800000.0___1688028733_duration_#rd.rtsa" RVal="../../../../../tmp/f_144800000.0___1688028733_duration_#rd.rtsa"/>
+                        <ConfigItem Name="checkoverwrite" Class="bool" Type="6" Val="0"/>
+                        <ConfigItem Name="fileindex" Class="integer" Type="1" Val="1"/>
+                        <ConfigItem Name="compression" Class="integer" Type="1" Val="0"/>
+                    </ConfigItem>
+                    <ConfigItem Name="view" Class="group" Type="0">
+                        <ConfigItem Name="frequencystart" Class="float" Type="2" Val="105002343.75" SubUnitName="MHz"/>
+                        <ConfigItem Name="frequencyspan" Class="float" Type="2" Val="1195312.5" SubUnitName="MHz"/>
+                    </ConfigItem>
+                </ConfigItem>
+                <Inputs>
+                    <Input Name="Input_FileWriter_Spectra_0" Title="Stream" Owner="Block_FileWriter_0"/>
+                </Inputs>
+                <Outputs>
+                    <Output Name="Output_FileWriter_Monitor_0" Title="Monitor" Owner="Block_FileWriter_0">
+                        <Connections>
+                            <Connection Name="Input_Http_Stream_0" Title="Stream" Owner="Block_HTTPServer_0"/>
+                        </Connections>
+                    </Output>
+                </Outputs>
+            </Base>
+            <Base GUID="e2ee7c6d-ca90-44d6-b5fe-3ac894365a9c" Factory="Factory_IQPowerSpectrum" Name="Block_IQPowerSpectrum_0" Title="FFT">
+                <ConfigItem Name="Block_IQPowerSpectrum_0_config" Class="group" Type="0">
+                    <ConfigItem Name="view" Class="group" Type="0">
+                        <ConfigItem Name="frequencystart" Class="float" Type="2" Val="105002343.75" SubUnitName="MHz"/>
+                        <ConfigItem Name="frequencyspan" Class="float" Type="2" Val="1195312.5" SubUnitName="MHz"/>
+                    </ConfigItem>
+                </ConfigItem>
+                <Inputs>
+                    <Input Name="Input_IQ_0" Title="IQ" Owner="Block_IQPowerSpectrum_0"/>
+                </Inputs>
+                <Outputs>
+                    <Output Name="Output_pectra_0" Title="Spectra" Owner="Block_IQPowerSpectrum_0">
+                        <Connections>
+                            <Connection Name="Input_Spectran_Spectra_0" Title="Spectra" Owner="Block_Waterfall_0"/>
+                        </Connections>
+                    </Output>
+                </Outputs>
+            </Base>
+            <Base GUID="55c797a3-8c4c-49eb-b173-6222dcf8619d" Factory="Factory_Waterfall" Name="Block_Waterfall_0" Title="Waterfall">
+                <ConfigItem Name="Block_Waterfall_0_config" Class="group" Type="0">
+                    <ConfigItem Name="main" Class="group" Type="0">
+                        <ConfigItem Name="compression" Class="float" Type="2" Val="10"/>
+                    </ConfigItem>
+                    <ConfigItem Name="view" Class="group" Type="0">
+                        <ConfigItem Name="frequencystart" Class="float" Type="2" Val="144200937.5166366" SubUnitName="MHz"/>
+                        <ConfigItem Name="frequencyspan" Class="float" Type="2" Val="1198124.966726876" SubUnitName="MHz"/>
+                        <ConfigItem Name="showcolorhistogram" Class="bool" Type="6" Val="1"/>
+                    </ConfigItem>
+                    <ConfigItem Name="colormap" Class="group" Type="0">
+                        <ConfigItem Name="high" Class="float" Type="2" Val="0.7490196228027344" SubUnitName="%"/>
+                        <ConfigItem Name="control" Class="group" Type="0">
+                            <ConfigItem Name="cvalue0" Class="float" Type="2" Val="0.5128116011619568" SubUnitName="%"/>
+                            <ConfigItem Name="ccolor0" Class="float" Type="2" Val="0.1923076957464218" SubUnitName="%"/>
+                        </ConfigItem>
+                    </ConfigItem>
+                </ConfigItem>
+                <Inputs>
+                    <Input Name="Input_Spectran_Spectra_0" Title="Spectra" Owner="Block_Waterfall_0"/>
+                </Inputs>
+                <Outputs>
+                    <Output Name="Output_Waterfall_0" Title="Spectra" Owner="Block_Waterfall_0"/>
+                </Outputs>
+            </Base>
+            <Base GUID="8f277473-93f8-40cf-bb75-b672089c4bfb" Factory="Factory_ControlSequencer" Name="ControlSequencer_0" Title="Control Sequencer">
+                <ConfigItem Name="ControlSequencer_0_config" Class="group" Type="0">
+                    <ConfigItem Name="main" Class="group" Type="0" Expanded="1">
+                        <ConfigItem Name="autostart" Class="bool" Type="6" Val="1"/>
+                        <ConfigItem Name="commands" Class="group" Type="0" Expanded="1">
+                            <ConfigItem Name="block-start#971530978" Class="group" Type="0" Expanded="1">
+                                <ConfigItem Name="receivername" Class="string" Type="3" Val="Block_Spectran_V6B_0"/>
+                                <ConfigItem Name="connectdevice" Class="bool" Type="6" Val="1"/>
+                            </ConfigItem>
+                        </ConfigItem>
+                    </ConfigItem>
+                </ConfigItem>
+                <Inputs>
+                    <Input Name="Input_ControlSequencer_0" Title="Input 1" Owner="ControlSequencer_0"/>
+                    <Input Name="Input_ControlSequencer_1" Title="Input 2" Owner="ControlSequencer_0"/>
+                    <Input Name="Input_ControlSequencer_2" Title="Input 3" Owner="ControlSequencer_0"/>
+                    <Input Name="Input_ControlSequencer_3" Title="Input 4" Owner="ControlSequencer_0"/>
+                    <Input Name="Input_ControlSequencer_4" Title="Input 5" Owner="ControlSequencer_0"/>
+                    <Input Name="Input_ControlSequencer_5" Title="Input 6" Owner="ControlSequencer_0"/>
+                    <Input Name="Input_ControlSequencer_6" Title="Input 7" Owner="ControlSequencer_0"/>
+                    <Input Name="Input_ControlSequencer_7" Title="Input 8" Owner="ControlSequencer_0"/>
+                </Inputs>
+            </Base>
+        </Bases>
+        <Privileges>
+            <Privilege Uuid="37F01B9B-B27A-48E2-B0D1-5F6DD6194681" Dbg.UserBase="Base">
+                <Root Name="mis">
+                    <Module Name="modMisMis" Type="0">
+                        <ConfigItem Name="misMisSaveMission" Class="bool" Type="6" Val="1"/>
+                        <ConfigItem Name="misMisSaveMissionAs" Class="bool" Type="6" Val="1"/>
+                        <ConfigItem Name="misMisOpenMission" Class="bool" Type="6" Val="1"/>
+                        <ConfigItem Name="misMisConfigMission" Class="bool" Type="6" Val="1"/>
+                    </Module>
+                    <Module Name="modMisBlockgraphEditor" Type="0">
+                        <ConfigItem Name="misBlockgraphEditorUse" Class="bool" Type="6" Val="1"/>
+                        <ConfigItem Name="misBlockgraphEditorShow" Class="bool" Type="6" Val="1"/>
+                        <ConfigItem Name="misBlockgraphEditorEdit" Class="bool" Type="6" Val="1"/>
+                    </Module>
+                    <Module Name="modMisGridEditor" Type="0">
+                        <ConfigItem Name="misGridEditorUse" Class="bool" Type="6" Val="1"/>
+                    </Module>
+                    <Module Name="modMisBlocks" Type="0">
+                        <ConfigItem Name="misBlocksShowConfig" Class="bool" Type="6" Val="1"/>
+                        <ConfigItem Name="misBlocksEditConfig" Class="bool" Type="6" Val="1"/>
+                    </Module>
+                    <Module Name="Block_HTTPServer_0" Type="0">
+                        <ConfigItem Name="connect" Class="bool" Type="6" Val="0"/>
+                    </Module>
+                </Root>
+            </Privilege>
+            <Privilege Uuid="F147C250-6804-4F35-BD58-FEDC2648DEDA" Dbg.UserBase="Users">
+                <Root Name="mis">
+                    <Module Name="Block_HTTPServer_0" Type="0">
+                        <ConfigItem Name="connect" Class="bool" Type="6" Val="1"/>
+                    </Module>
+                </Root>
+            </Privilege>
+        </Privileges>
+        <DockingUI Version="2021.1">
+            <Controller SelectedPerspective="P1">
+                <Perspective Name="P1" WorkMode="Split">
+                    <StateGrid>
+                        <CellController Width="1587" Height="1959" Cols="2" Rows="1" Widths="895;682" Heights="1953"/>
+                        <GridObjectController Cols="1" Rows="1"/>
+                    </StateGrid>
+                    <Docks>
+                        <Dock Name="Base_BlockEditor" Visible="1">
+                            <DockedPosition Name="Base_BlockEditor" Monitor="Edit" MonitorTitle="Edit Monitor" Rect="0;0;1;1"/>
+                        </Dock>
+                        <Dock Name="Base_ROC"/>
+                        <Dock Name="Base_HealthMonitor"/>
+                        <Dock Name="Block_Spectran_V6B_0" Visible="1">
+                            <DockedPosition Name="Block_Spectran_V6B_0" Monitor="Exec" MonitorTitle="Exec Monitor" Rect="0;0;1;1"/>
+                        </Dock>
+                        <Dock Name="Block_HTTPServer_0" Visible="1">
+                            <DockedPosition Name="Block_HTTPServer_0" Monitor="Exec" MonitorTitle="Exec Monitor" Rect="0;1;1;1"/>
+                        </Dock>
+                        <Dock Name="Block_FileWriter_0" Visible="1">
+                            <DockedPosition Name="Block_FileWriter_0" Monitor="Exec" MonitorTitle="Exec Monitor" Rect="0;2;1;1"/>
+                        </Dock>
+                        <Dock Name="Block_IQPowerSpectrum_0">
+                            <DockedPosition Name="Block_IQPowerSpectrum_0" Monitor="Exec" MonitorTitle="Exec Monitor" Rect="0;1;1;1"/>
+                        </Dock>
+                        <Dock Name="Block_Waterfall_0" Visible="1">
+                            <DockedPosition Name="Block_Waterfall_0" Monitor="Exec" MonitorTitle="Exec Monitor" Rect="0;2;1;1"/>
+                        </Dock>
+                        <Dock Name="Block_Waterfall_0#WaterfallMarkers"/>
+                        <Dock Name="ControlSequencer_0" Visible="1">
+                            <DockedPosition Name="ControlSequencer_0" Monitor="Exec" MonitorTitle="Exec Monitor" Rect="0;0;1;1"/>
+                        </Dock>
+                    </Docks>
+                    <InternalMonitors>
+                        <Monitor Name="Edit" Title="Edit Monitor" Visible="1" DUIMOFLAG="FixLay">
+                            <Grid>
+                                <State>
+                                    <CellController Width="895" Height="1953" Cols="1" Rows="1" Widths="895" Heights="1953"/>
+                                    <GridObjectController Cols="1" Rows="1">
+                                        <Objects>
+                                            <Object Rect="0;0;1;1">
+                                                <ExtData Items="Base_BlockEditor" Item="Base_BlockEditor"/>
+                                            </Object>
+                                        </Objects>
+                                    </GridObjectController>
+                                </State>
+                            </Grid>
+                        </Monitor>
+                        <Monitor Name="Exec" Title="Exec Monitor" Visible="1" DUIMOFLAG="ProSCs;ProDra;ProDro;ConMen">
+                            <Grid>
+                                <State>
+                                    <CellController Width="682" Height="1953" Cols="1" Rows="3" Widths="682" Heights="648;648;649"/>
+                                    <GridObjectController Cols="1" Rows="3">
+                                        <Objects>
+                                            <Object Rect="0;0;1;1">
+                                                <ExtData Items="ControlSequencer_0;Block_Spectran_V6B_0" Item="ControlSequencer_0"/>
+                                            </Object>
+                                            <Object Rect="0;1;1;1">
+                                                <ExtData Items="Block_IQPowerSpectrum_0;Block_HTTPServer_0" Item="Block_HTTPServer_0"/>
+                                            </Object>
+                                            <Object Rect="0;2;1;1">
+                                                <ExtData Items="Block_Waterfall_0;Block_FileWriter_0" Item="Block_Waterfall_0"/>
+                                            </Object>
+                                        </Objects>
+                                    </GridObjectController>
+                                </State>
+                            </Grid>
+                        </Monitor>
+                    </InternalMonitors>
+                    <ExternalMonitors/>
+                </Perspective>
+            </Controller>
+            <BlockDocks>
+                <BlockDock BaseName="Base_BlockEditor" Visible="1">
+                    <DockWidget>
+                        <Child_RTSA Splitter="440;220"/>
+                        <BlockEditorGuiConfiguration/>
+                        <BlockEditorGuiView ZoomFactor="0.6000000000000003" CenterScenePos="572.5;1605.83"/>
+                    </DockWidget>
+                </BlockDock>
+                <BlockDock BaseName="Base_ROC" VisibleConfiguration="1">
+                    <DockWidget>
+                        <Child_RTSA Splitter="360;300"/>
+                        <ROCGuiView/>
+                    </DockWidget>
+                </BlockDock>
+                <BlockDock BaseName="Base_HealthMonitor">
+                    <DockWidget>
+                        <Child_RTSA Splitter="360;300"/>
+                        <HealthMonitorWidget/>
+                        <HealthMonitorGuiView/>
+                    </DockWidget>
+                </BlockDock>
+                <BlockDock BaseName="Block_Spectran_V6B_0" VisibleConfiguration="1" Visible="1">
+                    <DockWidget>
+                        <Child_RTSA Splitter="400;683"/>
+                    </DockWidget>
+                </BlockDock>
+                <BlockDock BaseName="Block_HTTPServer_0" VisibleConfiguration="1" Visible="1">
+                    <DockWidget>
+                        <Child_RTSA Splitter="416;833"/>
+                    </DockWidget>
+                </BlockDock>
+                <BlockDock BaseName="Block_FileWriter_0" VisibleConfiguration="1" Visible="1">
+                    <DockWidget>
+                        <Child_RTSA Splitter="365;1604"/>
+                    </DockWidget>
+                </BlockDock>
+                <BlockDock BaseName="Block_IQPowerSpectrum_0" Visible="1">
+                    <DockWidget>
+                        <Child_RTSA Splitter="443;1444"/>
+                    </DockWidget>
+                </BlockDock>
+                <BlockDock BaseName="Block_Waterfall_0" Visible="1">
+                    <DockWidget>
+                        <Child_RTSA Splitter="360;300"/>
+                    </DockWidget>
+                </BlockDock>
+                <BlockDock BaseName="Block_Waterfall_0#WaterfallMarkers">
+                    <DockWidget>
+                        <Child_RTSA Splitter="360;300"/>
+                    </DockWidget>
+                </BlockDock>
+                <BlockDock BaseName="ControlSequencer_0" VisibleConfiguration="1" Visible="1">
+                    <DockWidget>
+                        <Child_RTSA Splitter="360;300"/>
+                    </DockWidget>
+                </BlockDock>
+            </BlockDocks>
+        </DockingUI>
+        <AppRibbonLayout Order="TS.ribbonTabRTSA,TS.ribbonTabDOUI,TS.ribbonTabSERV,TS.Base_ROC_ribbon,TS.Block_Spectran_V6B_0_ribbon,TS.Block_FileWriter_0_ribbon">
+            <MainSections>
+                <MainSection SelectedTab="TS.ribbonTabRTSA">
+                    <TabSection Name="TS.ribbonTabRTSA" Visible="1"/>
+                    <TabSection Name="TS.ribbonTabDOUI" Visible="1"/>
+                    <TabSection Name="TS.ribbonTabSERV" Visible="1"/>
+                </MainSection>
+                <MainSection>
+                    <TabSection Name="TS.Base_ROC_ribbon" Visible="0"/>
+                </MainSection>
+                <MainSection SelectedTab="TS.Block_Spectran_V6B_0_ribbon">
+                    <TabSection Name="TS.Block_Spectran_V6B_0_ribbon" Visible="1"/>
+                </MainSection>
+                <MainSection SelectedTab="TS.Block_FileWriter_0_ribbon">
+                    <TabSection Name="TS.Block_FileWriter_0_ribbon" Visible="1"/>
+                </MainSection>
+            </MainSections>
+        </AppRibbonLayout>
+    </Data>
+</Mission>

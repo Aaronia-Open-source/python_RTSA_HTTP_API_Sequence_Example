@@ -1,0 +1,1517 @@
+{
+  "request": 0,
+  "config": {
+    "type": "group",
+    "name": "remoteconfig",
+    "label": "RemoteConfig",
+    "flags": "",
+    "items": [
+      {
+        "type": "group",
+        "name": "Block_FileWriter_0",
+        "label": "File Writer",
+        "flags": "",
+        "items": [
+          {
+            "type": "group",
+            "name": "info",
+            "label": "Info",
+            "flags": "",
+            "items": [
+              {
+                "type": "float",
+                "name": "date",
+                "label": "Last Update",
+                "flags": "",
+                "min": 0,
+                "max": 1e12,
+                "step": 1e-3,
+                "value": 1688028303.8,
+                "default": 1688028297.9,
+                "unit": "DateTime"
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "label": "Name",
+                "flags": "",
+                "value": "Block_FileWriter_0",
+                "default": "Block_FileWriter_0"
+              },
+              {
+                "type": "string",
+                "name": "category",
+                "label": "Category",
+                "flags": "",
+                "value": "filedrain",
+                "default": "filedrain"
+              },
+              {
+                "type": "string",
+                "name": "title",
+                "label": "Title",
+                "flags": "",
+                "value": "File Writer",
+                "default": "File Writer"
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "label": "Description",
+                "flags": "",
+                "value": "f_105600000.0___1688028303_duration_#rd.rtsa",
+                "default": "f_105300000.0___1688028297_duration_#rd.rtsa"
+              },
+              {
+                "type": "string",
+                "name": "uuid",
+                "label": "UUID",
+                "flags": "",
+                "value": "{09bd8cf2-4186-438f-9ca8-77f037fec124}",
+                "default": "{09bd8cf2-4186-438f-9ca8-77f037fec124}"
+              }
+            ]
+          },
+          {
+            "type": "group",
+            "name": "config",
+            "label": "Block_FileWriter_0_FileWriter",
+            "flags": "",
+            "items": [
+              {
+                "type": "file",
+                "name": "filename",
+                "label": "Filename",
+                "flags": "file_create,ephemeral,cust_13,cust_19",
+                "file": "/tmp/f_105600000.0___1688028303_duration_#rd.rtsa",
+                "pattern": "Spectras (*.rtsa *.tag *.dat)",
+                "fallback": "/home/f102/Documents/Aaronia AG/Aaronia RTSA-Suite PRO/Exports",
+                "default": "/tmp/f_105300000.0___1688028297_duration_#rd.rtsa"
+              },
+              {
+                "type": "bool",
+                "name": "filerecord",
+                "label": "Record",
+                "flags": "bool_use_state_texts,bool_use_state_icons,bool_checkable_button,ephemeral",
+                "value": true,
+                "default": false,
+                "text_off": "Record",
+                "text_on": "Stop",
+                "res_off": "stimg_record",
+                "res_on": "stimg_stop"
+              },
+              {
+                "type": "bool",
+                "name": "singlestream",
+                "label": "Single Stream",
+                "flags": "ephemeral",
+                "value": false,
+                "default": false,
+                "text_off": "Disabled",
+                "text_on": "Enabled"
+              },
+              {
+                "type": "bool",
+                "name": "autostart",
+                "label": "Auto Start",
+                "flags": "ephemeral",
+                "value": false,
+                "default": false,
+                "text_off": "Disabled",
+                "text_on": "Enabled"
+              },
+              {
+                "type": "bool",
+                "name": "addfileindex",
+                "label": "Add Index",
+                "flags": "ephemeral",
+                "value": false,
+                "default": false,
+                "text_off": "Disabled",
+                "text_on": "Enabled"
+              },
+              {
+                "type": "bool",
+                "name": "addfiledate",
+                "label": "Add Date",
+                "flags": "ephemeral",
+                "value": false,
+                "default": false,
+                "text_off": "Disabled",
+                "text_on": "Enabled"
+              },
+              {
+                "type": "bool",
+                "name": "autosplit",
+                "label": "Auto Split File",
+                "flags": "ephemeral",
+                "value": false,
+                "default": false,
+                "text_off": "Disabled",
+                "text_on": "Enabled"
+              },
+              {
+                "type": "bool",
+                "name": "autorotate",
+                "label": "Auto Rotate",
+                "flags": "ephemeral",
+                "value": false,
+                "default": false,
+                "text_off": "Disabled",
+                "text_on": "Enabled"
+              },
+              {
+                "type": "bool",
+                "name": "checkoverwrite",
+                "label": "Check Overwrite",
+                "flags": "ephemeral",
+                "value": false,
+                "default": true,
+                "text_off": "Disabled",
+                "text_on": "Enabled"
+              },
+              {
+                "type": "integer",
+                "name": "fileindex",
+                "label": "Start Index",
+                "flags": "ephemeral",
+                "min": -1,
+                "max": 1000000,
+                "step": 1,
+                "value": 1,
+                "default": 0,
+                "valueformat": {
+                  "templ": "%1",
+                  "fwidth": 5
+                }
+              },
+              {
+                "type": "integer",
+                "name": "filerotate",
+                "label": "File Rotations",
+                "flags": "int_slider,ephemeral",
+                "min": 1,
+                "max": 1000,
+                "step": 1,
+                "value": 10,
+                "default": 10,
+                "valueformat": {
+                  "templ": "%1",
+                  "fwidth": 5
+                }
+              },
+              {
+                "type": "integer",
+                "name": "compression",
+                "label": "Compression",
+                "flags": "int_slider,ephemeral",
+                "min": 0,
+                "max": 8,
+                "step": 1,
+                "value": 0,
+                "default": 1,
+                "valueformat": {
+                  "templ": "%1"
+                }
+              },
+              {
+                "type": "float",
+                "name": "previewdist",
+                "label": "Previews",
+                "flags": "flo_slider,flo_logscale,ephemeral",
+                "min": 0.1,
+                "max": 240,
+                "step": 0.1,
+                "value": 0.1,
+                "default": 0.1,
+                "unit": "Time"
+              },
+              {
+                "type": "float",
+                "name": "maxsize",
+                "label": "Maximum Size",
+                "flags": "flo_slider,flo_logscale,flo_integer,ephemeral",
+                "min": 1000000,
+                "max": 1e12,
+                "step": 1000000,
+                "value": 1000000000,
+                "default": 1000000000,
+                "unit": "Byte"
+              },
+              {
+                "type": "float",
+                "name": "maxduration",
+                "label": "Maximum Duration",
+                "flags": "flo_slider,ephemeral",
+                "min": 5,
+                "max": 86400,
+                "step": 5,
+                "value": 3600,
+                "default": 3600,
+                "unit": "Time"
+              },
+              {
+                "type": "enum",
+                "name": "periodsplit",
+                "label": "Split Period",
+                "flags": "ephemeral",
+                "value": 0,
+                "default": 0,
+                "values": "none,1s,5s,15s,30s,1m,5m,15m,30m,1h,2h,6h,12h,24h",
+                "disabled": 0
+              },
+              {
+                "type": "bool",
+                "name": "limitfolder",
+                "label": "Limit Folder",
+                "flags": "ephemeral",
+                "value": false,
+                "default": false,
+                "text_off": "Disabled",
+                "text_on": "Enabled"
+              },
+              {
+                "type": "float",
+                "name": "maxfoldersize",
+                "label": "Max Folder Size",
+                "flags": "flo_slider,flo_logscale,flo_integer,ephemeral",
+                "min": 100000000,
+                "max": 1e13,
+                "step": 100000000,
+                "value": 1000000000,
+                "default": 1000000000,
+                "unit": "Byte"
+              },
+              {
+                "type": "enum",
+                "name": "maxfolderaction",
+                "label": "Max Folder Action",
+                "flags": "ephemeral",
+                "value": 0,
+                "default": 0,
+                "values": "flag,move,delete",
+                "disabled": 0
+              },
+              {
+                "type": "path",
+                "name": "maxfoldertarget",
+                "label": "Max Folder Target",
+                "flags": "ephemeral",
+                "path": "",
+                "default": ""
+              },
+              {
+                "type": "file",
+                "name": "filenamecompleted",
+                "label": "Filename Completed",
+                "flags": "hidden,ephemeral",
+                "file": "/tmp/f_433050000.0___1688028300_duration_#rd.rtsa",
+                "pattern": "Spectras (*.rtsa *.tag *.dat)",
+                "fallback": "/home/f102/Documents/Aaronia AG/Aaronia RTSA-Suite PRO/Exports",
+                "default": "/tmp/f_144800000.0___1688028275_duration_#rd.rtsa"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "group",
+        "name": "Block_Spectran_V6B_0",
+        "label": "SPECTRAN V6",
+        "flags": "",
+        "items": [
+          {
+            "type": "group",
+            "name": "info",
+            "label": "Info",
+            "flags": "",
+            "items": [
+              {
+                "type": "float",
+                "name": "date",
+                "label": "Last Update",
+                "flags": "",
+                "min": 0,
+                "max": 1e12,
+                "step": 1e-3,
+                "value": 1688028303.8,
+                "default": 1688023966.2,
+                "unit": "DateTime"
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "label": "Name",
+                "flags": "",
+                "value": "Block_Spectran_V6B_0",
+                "default": "Block_Spectran_V6B_0"
+              },
+              {
+                "type": "string",
+                "name": "category",
+                "label": "Category",
+                "flags": "",
+                "value": "spectrumanalyzer",
+                "default": "spectrumanalyzer"
+              },
+              {
+                "type": "string",
+                "name": "title",
+                "label": "Title",
+                "flags": "",
+                "value": "SPECTRAN V6",
+                "default": "SPECTRAN V6"
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "label": "Description",
+                "flags": "",
+                "value": "",
+                "default": ""
+              },
+              {
+                "type": "string",
+                "name": "uuid",
+                "label": "UUID",
+                "flags": "",
+                "value": "{55e0fd23-2503-451b-8389-255b6524eb8d}",
+                "default": "{55e0fd23-2503-451b-8389-255b6524eb8d}"
+              }
+            ]
+          },
+          {
+            "type": "group",
+            "name": "config",
+            "label": "Config",
+            "flags": "",
+            "items": [
+              {
+                "type": "group",
+                "name": "main",
+                "label": "Main",
+                "flags": "",
+                "items": [
+                  {
+                    "type": "enum",
+                    "name": "deviceselect",
+                    "label": "Device Select",
+                    "flags": "ephemeral,readonly",
+                    "value": 0,
+                    "default": 0,
+                    "values": "Any Available,A3-x-01000048.xxaaaaaa",
+                    "titles": "Any Available,✔A3-x-01000048.xxaaaaaa",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "enum",
+                    "name": "scangroup",
+                    "label": "Scan Group",
+                    "flags": "",
+                    "value": 1,
+                    "default": 1,
+                    "values": "auto,none,1,2,3,4,5,6,7,8",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "float",
+                    "name": "centerfreq",
+                    "label": "Center Frequency",
+                    "flags": "cust_13",
+                    "min": 75292968.75,
+                    "max": 6000000000,
+                    "step": 1000,
+                    "value": 105600000,
+                    "default": 2440000000,
+                    "unit": "Frequency"
+                  },
+                  {
+                    "type": "enum",
+                    "name": "decimation",
+                    "label": "Span",
+                    "flags": "cust_17",
+                    "value": 7,
+                    "default": 0,
+                    "values": "Full,1 / 2,1 / 4,1 / 8,1 / 16,1 / 32,1 / 64,1 / 128,1 / 256,1 / 512",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "frequencyprofiles",
+                    "name": "frequencyprofile",
+                    "label": "Frequency Profile",
+                    "flags": "",
+                    "values": []
+                  },
+                  {
+                    "type": "bool",
+                    "name": "fullspectrum",
+                    "label": "Full Spectrum",
+                    "flags": "",
+                    "value": false,
+                    "default": false,
+                    "text_off": "Disabled",
+                    "text_on": "Enabled"
+                  },
+                  {
+                    "type": "float",
+                    "name": "reflevel",
+                    "label": "Reference Level",
+                    "flags": "flo_slider,cust_14,cust_19",
+                    "min": -60,
+                    "max": 10,
+                    "step": 0.5,
+                    "value": -35,
+                    "default": 0,
+                    "unit": "dBm"
+                  },
+                  {
+                    "type": "float",
+                    "name": "transattn",
+                    "label": "Transmitter Gain",
+                    "flags": "flo_slider,cust_14,cust_19",
+                    "min": -100,
+                    "max": 10,
+                    "step": 0.01,
+                    "value": -20,
+                    "default": -20,
+                    "unit": "dB"
+                  },
+                  {
+                    "type": "bool",
+                    "name": "connect",
+                    "label": "Disconnect",
+                    "flags": "bool_use_state_icons,bool_checkable_button,ephemeral,cust_17",
+                    "value": true,
+                    "default": false,
+                    "text_off": "Connect",
+                    "text_on": "Disconnect",
+                    "res_off": "stimg_power_button",
+                    "res_on": "stimg_power_button"
+                  },
+                  {
+                    "type": "bool",
+                    "name": "run",
+                    "label": "Stop",
+                    "flags": "bool_use_state_texts,bool_use_state_icons,bool_checkable_button,ephemeral,cust_17",
+                    "value": true,
+                    "default": false,
+                    "text_off": "Start",
+                    "text_on": "Stop",
+                    "res_off": "stimg_play",
+                    "res_on": "stimg_pause"
+                  },
+                  {
+                    "type": "bool",
+                    "name": "test",
+                    "label": "Test",
+                    "flags": "bool_use_state_texts,bool_checkable_button,ephemeral,readonly",
+                    "value": false,
+                    "default": false,
+                    "text_off": "Test Device",
+                    "text_on": "Abort Test"
+                  }
+                ]
+              },
+              {
+                "type": "group",
+                "name": "device",
+                "label": "Board Config",
+                "flags": "",
+                "items": [
+                  {
+                    "type": "enum",
+                    "name": "usbcompression",
+                    "label": "USB Compression",
+                    "flags": "",
+                    "value": 0,
+                    "default": 0,
+                    "values": "auto,compressed,raw",
+                    "titles": "Auto,Compressed,Raw",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "enum",
+                    "name": "gaincontrol",
+                    "label": "Gain Control",
+                    "flags": "",
+                    "value": 0,
+                    "default": 0,
+                    "values": "manual,peak,power",
+                    "titles": "Manual,Peak,Power",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "enum",
+                    "name": "frequencyrange",
+                    "label": "Frequency Range",
+                    "flags": "",
+                    "value": 0,
+                    "default": 0,
+                    "values": "6ghz,18ghz,30ghz",
+                    "titles": "6 GHz,18 GHz,30 GHz",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "enum",
+                    "name": "outputformat",
+                    "label": "Output Format",
+                    "flags": "cust_17",
+                    "value": 3,
+                    "default": 3,
+                    "values": "iq,spectra,both,auto",
+                    "titles": "IQ,Spectra,Both,Auto",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "bool",
+                    "name": "lowpower",
+                    "label": "Low Power Mode",
+                    "flags": "show_more",
+                    "value": false,
+                    "default": false,
+                    "text_off": "Disabled",
+                    "text_on": "Enabled"
+                  },
+                  {
+                    "type": "group",
+                    "name": "fft0",
+                    "label": "Spectra 1",
+                    "flags": "",
+                    "items": [
+                      {
+                        "type": "enum",
+                        "name": "fftmergemode",
+                        "label": "FFT Merge Mode",
+                        "flags": "",
+                        "value": 0,
+                        "default": 0,
+                        "values": "avg,sum,min,max",
+                        "disabled": 0
+                      },
+                      {
+                        "type": "integer",
+                        "name": "fftaggregate",
+                        "label": "FFT Merge Length",
+                        "flags": "int_slider,int_logscale",
+                        "min": 1,
+                        "max": 65535,
+                        "step": 1,
+                        "value": 1,
+                        "default": 1
+                      },
+                      {
+                        "type": "enum",
+                        "name": "fftsizemode",
+                        "label": "FFT Size Mode",
+                        "flags": "",
+                        "value": 0,
+                        "default": 0,
+                        "values": "FFT,Bins,Step Frequency,RBW",
+                        "titles": "FFT,Bins,Step Frequency,RBW",
+                        "disabled": 0
+                      },
+                      {
+                        "type": "integer",
+                        "name": "fftsize",
+                        "label": "FFT Size",
+                        "flags": "int_slider,int_power2",
+                        "min": 8,
+                        "max": 8192,
+                        "step": 1,
+                        "value": 2048,
+                        "default": 2048
+                      },
+                      {
+                        "type": "enum",
+                        "name": "fftwindow",
+                        "label": "FFT Window",
+                        "flags": "",
+                        "value": 0,
+                        "default": 0,
+                        "values": "Hamming,Hann,Uniform,Blackman,Blackman Harris,Blackman Harris 7,Flat Top,Lanczos,Gaussion 0.5,Gaussion 0.4,Gaussian 0.3,Gaussion 0.2,Gaussian 0.1,Kaiser 6,Kaiser 12,Kaiser 18,Kaiser 36,Kaiser 72,Tukey 0.1,Tukey 0.3,Tukey 0.5,Tukey 0.7,Tukey 0.9",
+                        "disabled": 0
+                      }
+                    ]
+                  },
+                  {
+                    "type": "group",
+                    "name": "fft1",
+                    "label": "Spectra 2",
+                    "flags": "",
+                    "items": [
+                      {
+                        "type": "enum",
+                        "name": "fftmergemode",
+                        "label": "FFT Merge Mode",
+                        "flags": "",
+                        "value": 0,
+                        "default": 0,
+                        "values": "avg,sum,min,max",
+                        "disabled": 0
+                      },
+                      {
+                        "type": "integer",
+                        "name": "fftaggregate",
+                        "label": "FFT Merge Length",
+                        "flags": "int_slider,int_logscale",
+                        "min": 1,
+                        "max": 65535,
+                        "step": 1,
+                        "value": 1,
+                        "default": 1
+                      },
+                      {
+                        "type": "enum",
+                        "name": "fftsizemode",
+                        "label": "FFT Size Mode",
+                        "flags": "",
+                        "value": 0,
+                        "default": 0,
+                        "values": "FFT,Bins,Step Frequency,RBW",
+                        "titles": "FFT,Bins,Step Frequency,RBW",
+                        "disabled": 0
+                      },
+                      {
+                        "type": "integer",
+                        "name": "fftsize",
+                        "label": "FFT Size",
+                        "flags": "int_slider,int_power2",
+                        "min": 8,
+                        "max": 8192,
+                        "step": 1,
+                        "value": 2048,
+                        "default": 2048
+                      },
+                      {
+                        "type": "enum",
+                        "name": "fftwindow",
+                        "label": "FFT Window",
+                        "flags": "",
+                        "value": 0,
+                        "default": 0,
+                        "values": "Hamming,Hann,Uniform,Blackman,Blackman Harris,Blackman Harris 7,Flat Top,Lanczos,Gaussion 0.5,Gaussion 0.4,Gaussian 0.3,Gaussion 0.2,Gaussian 0.1,Kaiser 6,Kaiser 12,Kaiser 18,Kaiser 36,Kaiser 72,Tukey 0.1,Tukey 0.3,Tukey 0.5,Tukey 0.7,Tukey 0.9",
+                        "disabled": 0
+                      }
+                    ]
+                  },
+                  {
+                    "type": "enum",
+                    "name": "receiverclock",
+                    "label": "Receiver Clock",
+                    "flags": "cust_17",
+                    "value": 0,
+                    "default": 0,
+                    "values": "92MHz,122MHz,184MHz,245MHz,77MHz,61MHz,46MHz",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "enum",
+                    "name": "receiverchannel",
+                    "label": "Receiver Channels",
+                    "flags": "cust_17",
+                    "value": 5,
+                    "default": 5,
+                    "values": "Rx1,Rx2,Rx1+Rx2,Rx1/Rx2,Rx Off,auto",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "enum",
+                    "name": "receiverchannelsel",
+                    "label": "Receiver Select",
+                    "flags": "readonly,cust_17",
+                    "value": 0,
+                    "default": 0,
+                    "values": "Rx1,Rx2,Rx2->1,Rx1->2",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "enum",
+                    "name": "transmittermode",
+                    "label": "Transmitter Mode",
+                    "flags": "cust_17",
+                    "value": 0,
+                    "default": 0,
+                    "values": "Off,Test,Stream,Reactive,Signal Generator,Pattern Generator",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "float",
+                    "name": "transmitterclockvar",
+                    "label": "Tx Clock Tolerance",
+                    "flags": "flo_slider,flo_logscale",
+                    "min": 1e-6,
+                    "max": 1,
+                    "step": 1e-6,
+                    "value": 2e-4,
+                    "default": 2e-4,
+                    "unit": "Time"
+                  },
+                  {
+                    "type": "group",
+                    "name": "generator",
+                    "label": "Signal Generator",
+                    "flags": "readonly",
+                    "items": [
+                      {
+                        "type": "enum",
+                        "name": "type",
+                        "label": "Generator Type",
+                        "flags": "",
+                        "value": 0,
+                        "default": 0,
+                        "values": "Relative Tone,Absolute Tone,Step,Sweep,Sweep Alternate,Full Sweep,Center Sweep,Polytone,Relative Ditone,Absolute Ditone,Noise,Digital Noise,Off",
+                        "disabled": 0
+                      },
+                      {
+                        "type": "float",
+                        "name": "startfreq",
+                        "label": "Start Frequency",
+                        "flags": "readonly",
+                        "min": 1000,
+                        "max": 20000000000,
+                        "step": 1,
+                        "value": 2400000000,
+                        "default": 2400000000,
+                        "unit": "Frequency"
+                      },
+                      {
+                        "type": "float",
+                        "name": "stopfreq",
+                        "label": "Stop Frequency",
+                        "flags": "readonly",
+                        "min": 1000,
+                        "max": 20000000000,
+                        "step": 1,
+                        "value": 2420000000,
+                        "default": 2420000000,
+                        "unit": "Frequency"
+                      },
+                      {
+                        "type": "float",
+                        "name": "stepfreq",
+                        "label": "Step Frequency",
+                        "flags": "flo_slider,readonly",
+                        "min": 1,
+                        "max": 200000000,
+                        "step": 1,
+                        "value": 1000000,
+                        "default": 1000000,
+                        "unit": "Frequency"
+                      },
+                      {
+                        "type": "float",
+                        "name": "offsetfreq",
+                        "label": "Offset Frequency",
+                        "flags": "flo_slider",
+                        "min": -120000000,
+                        "max": 120000000,
+                        "step": 1,
+                        "value": 1000000,
+                        "default": 1000000,
+                        "unit": "Frequency"
+                      },
+                      {
+                        "type": "float",
+                        "name": "duration",
+                        "label": "Duration",
+                        "flags": "readonly",
+                        "min": 1e-6,
+                        "max": 3600,
+                        "step": 1e-6,
+                        "value": 10,
+                        "default": 10,
+                        "unit": "Time"
+                      },
+                      {
+                        "type": "float",
+                        "name": "powerramp",
+                        "label": "Power Ramp",
+                        "flags": "flo_slider,readonly",
+                        "min": -150,
+                        "max": 150,
+                        "step": 0.1,
+                        "value": 0,
+                        "default": 0,
+                        "unit": "dB"
+                      },
+                      {
+                        "type": "float",
+                        "name": "softstart",
+                        "label": "Soft Start",
+                        "flags": "flo_slider,readonly",
+                        "min": 0,
+                        "max": 0.1,
+                        "step": 1e-3,
+                        "value": 0,
+                        "default": 0,
+                        "unit": "Percentage"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "enum",
+                    "name": "sclksource",
+                    "label": "Stream Clock Source",
+                    "flags": "",
+                    "value": 0,
+                    "default": 0,
+                    "values": "Consumer,Oscillator,GPS,PPS,10MHz,Oscillator Provider,GPS Provider,PPS Provider",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "enum",
+                    "name": "triggeredge",
+                    "label": "Trigger Edge",
+                    "flags": "",
+                    "value": 0,
+                    "default": 0,
+                    "values": "Off,High,Low,Rising,Falling,Changing",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "enum",
+                    "name": "triggerflag",
+                    "label": "Trigger Flag",
+                    "flags": "",
+                    "value": 0,
+                    "default": 0,
+                    "values": "C0,C1,C2,C3",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "enum",
+                    "name": "gpsmode",
+                    "label": "GPS Mode",
+                    "flags": "",
+                    "value": 0,
+                    "default": 0,
+                    "values": "Disabled,Location,Time,Location and Time",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "float",
+                    "name": "gpsrate",
+                    "label": "GPS Update Rate",
+                    "flags": "flo_slider",
+                    "min": 0.1,
+                    "max": 5,
+                    "step": 0.1,
+                    "value": 0.5,
+                    "default": 0.5,
+                    "unit": "Time"
+                  },
+                  {
+                    "type": "bool",
+                    "name": "tempfancontrol",
+                    "label": "Temperature Fan Control",
+                    "flags": "readonly,global_default",
+                    "value": false,
+                    "default": false,
+                    "text_off": "Disabled",
+                    "text_on": "Enabled"
+                  },
+                  {
+                    "type": "enum",
+                    "name": "dspbufmode",
+                    "label": "DSP Buffer Mode",
+                    "flags": "",
+                    "value": 0,
+                    "default": 0,
+                    "values": "Auto,Min Latency,Max Throughput,Max Resilience",
+                    "disabled": 0
+                  }
+                ]
+              },
+              {
+                "type": "group",
+                "name": "calibration",
+                "label": "Calibration",
+                "flags": "show_more",
+                "items": [
+                  {
+                    "type": "enum",
+                    "name": "rffilter",
+                    "label": "RX Filter",
+                    "flags": "",
+                    "value": 2,
+                    "default": 2,
+                    "values": "Calibration,Bypass,Auto,Auto Extended,75-145 (50),90-160 (50),110-195 (50),135-205 (50),155-270 (50),155-270 (100),155-280 (100),180-350 (100),230-460 (100),240-545,340-650,440-815,610-1055,850-1370,1162-2060,1850-3010,2800-4610,4400-6100",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "enum",
+                    "name": "preamp",
+                    "label": "RF Amplifier",
+                    "flags": "cust_17",
+                    "value": 1,
+                    "default": 0,
+                    "values": "Disabled,Auto,None,Amp,Preamp,Both",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "enum",
+                    "name": "rftxfilter",
+                    "label": "TX Filter",
+                    "flags": "",
+                    "value": 2,
+                    "default": 2,
+                    "values": "Calibration,Bypass,Auto,Auto Extended,75-145 (50),90-160 (50),110-195 (50),135-205 (50),155-270 (50),155-270 (100),155-280 (100),180-350 (100),230-460 (100),240-545,340-650,440-815,610-1055,850-1370,1162-2060,1850-3010,2800-4610,4400-6100",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "enum",
+                    "name": "calibrationmode",
+                    "label": "Mode",
+                    "flags": "readonly",
+                    "value": 0,
+                    "default": 0,
+                    "values": "Off,RX Attenuator,TX Attenuator,Tx No Amplifier,Tx Amplifier,Rx Thermal,Tx Thermal,Rx RTBW,Tx RTBW,Rx Filter,Rx Amplifier,Tx LO Leakage,Clock,Raw,Free",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "float",
+                    "name": "txioffset",
+                    "label": "Tx I-Offset",
+                    "flags": "flo_slider",
+                    "min": -0.1,
+                    "max": 0.1,
+                    "step": 1e-4,
+                    "value": 0,
+                    "default": 0,
+                    "unit": "Number"
+                  },
+                  {
+                    "type": "float",
+                    "name": "txqoffset",
+                    "label": "Tx Q-Offset",
+                    "flags": "flo_slider",
+                    "min": -0.1,
+                    "max": 0.1,
+                    "step": 1e-4,
+                    "value": 0,
+                    "default": 0,
+                    "unit": "Number"
+                  },
+                  {
+                    "type": "float",
+                    "name": "txexcent",
+                    "label": "Tx IQ-Excentricity",
+                    "flags": "flo_slider",
+                    "min": -0.1,
+                    "max": 0.1,
+                    "step": 1e-5,
+                    "value": 0,
+                    "default": 0,
+                    "unit": "Percentage"
+                  },
+                  {
+                    "type": "float",
+                    "name": "txphaseskew",
+                    "label": "Tx IQ-Phase Skew",
+                    "flags": "flo_slider",
+                    "min": -15,
+                    "max": 15,
+                    "step": 0.01,
+                    "value": 0,
+                    "default": 0,
+                    "unit": "Degree"
+                  },
+                  {
+                    "type": "float",
+                    "name": "clockscale",
+                    "label": "Clock offset at 100MHz",
+                    "flags": "flo_slider",
+                    "min": -100,
+                    "max": 100,
+                    "step": 1e-6,
+                    "value": 0,
+                    "default": 0,
+                    "unit": "Frequency"
+                  },
+                  {
+                    "type": "enum",
+                    "name": "clockbygpsupdate",
+                    "label": "Calibrate Clock by GPS",
+                    "flags": "",
+                    "value": 0,
+                    "default": 0,
+                    "values": "Never,Once,Reset,On Startup,Slow,Fast,Realtime",
+                    "disabled": 0
+                  },
+                  {
+                    "type": "button",
+                    "name": "calibrationreload",
+                    "label": "Reload",
+                    "flags": "readonly"
+                  },
+                  {
+                    "type": "bool",
+                    "name": "sampleclocknotch",
+                    "label": "SClock Notch Filter",
+                    "flags": "",
+                    "value": true,
+                    "default": true,
+                    "text_off": "Disabled",
+                    "text_on": "Enabled"
+                  },
+                  {
+                    "type": "bool",
+                    "name": "highspeedclocknotch",
+                    "label": "HClock Notch Filter",
+                    "flags": "",
+                    "value": true,
+                    "default": true,
+                    "text_off": "Disabled",
+                    "text_on": "Enabled"
+                  },
+                  {
+                    "type": "bool",
+                    "name": "spectrumdchide",
+                    "label": "Hide DC In Spectrum",
+                    "flags": "",
+                    "value": true,
+                    "default": true,
+                    "text_off": "Disabled",
+                    "text_on": "Enabled"
+                  },
+                  {
+                    "type": "group",
+                    "name": "spectraV6DC1",
+                    "label": "Spectrum DC Suppression",
+                    "flags": "show_more",
+                    "items": [
+                      {
+                        "type": "bool",
+                        "name": "enable",
+                        "label": "Enable",
+                        "flags": "",
+                        "value": true,
+                        "default": true,
+                        "text_off": "Disabled",
+                        "text_on": "Enabled"
+                      },
+                      {
+                        "type": "bool",
+                        "name": "preview",
+                        "label": "Preview",
+                        "flags": "",
+                        "value": false,
+                        "default": false,
+                        "text_off": "Disabled",
+                        "text_on": "Enabled"
+                      },
+                      {
+                        "type": "float",
+                        "name": "basepower",
+                        "label": "Base Power",
+                        "flags": "flo_slider",
+                        "min": -20,
+                        "max": 20,
+                        "step": 0.01,
+                        "value": 0,
+                        "default": 0,
+                        "unit": "dBm"
+                      },
+                      {
+                        "type": "float",
+                        "name": "scalepower",
+                        "label": "Scale Power",
+                        "flags": "flo_slider",
+                        "min": -10,
+                        "max": 12,
+                        "step": 0.01,
+                        "value": 3,
+                        "default": 3,
+                        "unit": "dB"
+                      },
+                      {
+                        "type": "float",
+                        "name": "scalefrequency",
+                        "label": "Scale Frequency",
+                        "flags": "flo_slider",
+                        "min": 0.01,
+                        "max": 10,
+                        "step": 0.01,
+                        "value": 1,
+                        "default": 1,
+                        "unit": "Percentage"
+                      },
+                      {
+                        "type": "float",
+                        "name": "variancefloor",
+                        "label": "Floor Variance",
+                        "flags": "flo_slider",
+                        "min": 0,
+                        "max": 2,
+                        "step": 0.01,
+                        "value": 0.56,
+                        "default": 0.56,
+                        "unit": "Percentage"
+                      },
+                      {
+                        "type": "float",
+                        "name": "variancescale",
+                        "label": "FloorScale",
+                        "flags": "flo_slider",
+                        "min": 0,
+                        "max": 2,
+                        "step": 0.01,
+                        "value": 0.87,
+                        "default": 0.87,
+                        "unit": "Percentage"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "group",
+                    "name": "SpectranV6BADCCompensator1",
+                    "label": "ADC Compensation",
+                    "flags": "show_more",
+                    "items": [
+                      {
+                        "type": "bool",
+                        "name": "bypass",
+                        "label": "DC Corr Bypass",
+                        "flags": "",
+                        "value": false,
+                        "default": false,
+                        "text_off": "Disabled",
+                        "text_on": "Enabled"
+                      },
+                      {
+                        "type": "float",
+                        "name": "maxvar",
+                        "label": "Max Variance",
+                        "flags": "flo_slider",
+                        "min": 0,
+                        "max": 0.1,
+                        "step": 1e-4,
+                        "value": 5e-3,
+                        "default": 5e-3,
+                        "unit": "Number"
+                      },
+                      {
+                        "type": "float",
+                        "name": "minvarratio",
+                        "label": "Min Variance Ratio",
+                        "flags": "flo_slider",
+                        "min": 0,
+                        "max": 2,
+                        "step": 1e-3,
+                        "value": 0.1,
+                        "default": 0.1,
+                        "unit": "Percentage"
+                      },
+                      {
+                        "type": "bool",
+                        "name": "skiplead",
+                        "label": "Skip Leading Samples",
+                        "flags": "",
+                        "value": true,
+                        "default": true,
+                        "text_off": "Disabled",
+                        "text_on": "Enabled"
+                      },
+                      {
+                        "type": "bool",
+                        "name": "skiptrail",
+                        "label": "Skip Trailing Samples",
+                        "flags": "",
+                        "value": true,
+                        "default": true,
+                        "text_off": "Disabled",
+                        "text_on": "Enabled"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "group",
+                    "name": "SpectranV6BDCOffset1",
+                    "label": "DC Offset Correction",
+                    "flags": "show_more",
+                    "items": [
+                      {
+                        "type": "float",
+                        "name": "frequency",
+                        "label": "DC Corr Frequency",
+                        "flags": "flo_slider,flo_logscale",
+                        "min": 1000,
+                        "max": 20000000,
+                        "step": 1000,
+                        "value": 200000,
+                        "default": 200000,
+                        "unit": "Frequency"
+                      },
+                      {
+                        "type": "float",
+                        "name": "power",
+                        "label": "DC Corr Attn",
+                        "flags": "flo_slider",
+                        "min": 0,
+                        "max": 120,
+                        "step": 2,
+                        "value": 10,
+                        "default": 10,
+                        "unit": "Number"
+                      },
+                      {
+                        "type": "float",
+                        "name": "maxpower",
+                        "label": "DC Corr Limit",
+                        "flags": "flo_slider",
+                        "min": -120,
+                        "max": 20,
+                        "step": 2,
+                        "value": -80,
+                        "default": -80,
+                        "unit": "Number"
+                      },
+                      {
+                        "type": "bool",
+                        "name": "bypass",
+                        "label": "DC Corr Bypass",
+                        "flags": "",
+                        "value": false,
+                        "default": false,
+                        "text_off": "Disabled",
+                        "text_on": "Enabled"
+                      },
+                      {
+                        "type": "float",
+                        "name": "iir",
+                        "label": "DC Corr LP IIR",
+                        "flags": "flo_slider",
+                        "min": 0,
+                        "max": 1,
+                        "step": 1e-3,
+                        "value": 0.5,
+                        "default": 0.5,
+                        "unit": "Percentage"
+                      },
+                      {
+                        "type": "float",
+                        "name": "iirdecar",
+                        "label": "DC Corr LP IIR Decay",
+                        "flags": "flo_slider",
+                        "min": 1e-3,
+                        "max": 1,
+                        "step": 1e-3,
+                        "value": 0.125,
+                        "default": 0.125,
+                        "unit": "Percentage"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "group",
+                    "name": "SpectranV6BNormalizer1",
+                    "label": "IQ Normalization",
+                    "flags": "show_more",
+                    "items": [
+                      {
+                        "type": "float",
+                        "name": "frequency",
+                        "label": "Corr LP FIR",
+                        "flags": "flo_slider,flo_logscale",
+                        "min": 1000,
+                        "max": 20000000,
+                        "step": 1000,
+                        "value": 5000,
+                        "default": 5000,
+                        "unit": "Frequency"
+                      },
+                      {
+                        "type": "float",
+                        "name": "iir",
+                        "label": "Corr LP IIR",
+                        "flags": "flo_slider",
+                        "min": 0,
+                        "max": 1,
+                        "step": 1e-3,
+                        "value": 0.1,
+                        "default": 0.1,
+                        "unit": "Percentage"
+                      },
+                      {
+                        "type": "float",
+                        "name": "iirdecar",
+                        "label": "Corr LP IIR Decay",
+                        "flags": "flo_slider",
+                        "min": 1e-3,
+                        "max": 1,
+                        "step": 1e-3,
+                        "value": 0.125,
+                        "default": 0.125,
+                        "unit": "Percentage"
+                      },
+                      {
+                        "type": "bool",
+                        "name": "correctdcC",
+                        "label": "Correct DC",
+                        "flags": "",
+                        "value": false,
+                        "default": false,
+                        "text_off": "Disabled",
+                        "text_on": "Enabled"
+                      },
+                      {
+                        "type": "bool",
+                        "name": "correctexc",
+                        "label": "Correct Excentricity",
+                        "flags": "",
+                        "value": true,
+                        "default": true,
+                        "text_off": "Disabled",
+                        "text_on": "Enabled"
+                      },
+                      {
+                        "type": "bool",
+                        "name": "correctphase",
+                        "label": "Correct Phase",
+                        "flags": "",
+                        "value": true,
+                        "default": true,
+                        "text_off": "Disabled",
+                        "text_on": "Enabled"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "group",
+                    "name": "SpectranV6BNotch1",
+                    "label": "RX Notch Filter",
+                    "flags": "show_more",
+                    "items": [
+                      {
+                        "type": "float",
+                        "name": "frequency",
+                        "label": "Notch Frequency",
+                        "flags": "",
+                        "min": 1000,
+                        "max": 20000000000,
+                        "step": 0.01,
+                        "value": 92159997.441,
+                        "default": 92160000,
+                        "unit": "Frequency"
+                      },
+                      {
+                        "type": "float",
+                        "name": "power",
+                        "label": "Max Power",
+                        "flags": "flo_slider",
+                        "min": 0,
+                        "max": 120,
+                        "step": 2,
+                        "value": 40,
+                        "default": 40,
+                        "unit": "Number"
+                      },
+                      {
+                        "type": "bool",
+                        "name": "bypass",
+                        "label": "Bypass",
+                        "flags": "",
+                        "value": false,
+                        "default": false,
+                        "text_off": "Disabled",
+                        "text_on": "Enabled"
+                      },
+                      {
+                        "type": "bool",
+                        "name": "harmonics",
+                        "label": "Filter Harmonics",
+                        "flags": "",
+                        "value": true,
+                        "default": true,
+                        "text_off": "Disabled",
+                        "text_on": "Enabled"
+                      },
+                      {
+                        "type": "float",
+                        "name": "iir",
+                        "label": "IIR",
+                        "flags": "flo_slider",
+                        "min": 1e-4,
+                        "max": 0.1,
+                        "step": 1e-4,
+                        "value": 1e-4,
+                        "default": 1e-4,
+                        "unit": "Percentage"
+                      },
+                      {
+                        "type": "float",
+                        "name": "iirdecar",
+                        "label": "IIR Decay",
+                        "flags": "flo_slider",
+                        "min": 1e-3,
+                        "max": 1,
+                        "step": 1e-3,
+                        "value": 0.125,
+                        "default": 0.125,
+                        "unit": "Percentage"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "group",
+                    "name": "SpectranV6BSampComb1",
+                    "label": "RX Sample Comb Filter",
+                    "flags": "show_more",
+                    "items": [
+                      {
+                        "type": "float",
+                        "name": "delay",
+                        "label": "Delay",
+                        "flags": "",
+                        "min": 4,
+                        "max": 268435456,
+                        "step": 1e-5,
+                        "value": 209714.8,
+                        "default": 4,
+                        "unit": "Number"
+                      },
+                      {
+                        "type": "bool",
+                        "name": "bypass",
+                        "label": "Bypass",
+                        "flags": "",
+                        "value": false,
+                        "default": true,
+                        "text_off": "Disabled",
+                        "text_on": "Enabled"
+                      },
+                      {
+                        "type": "float",
+                        "name": "iir",
+                        "label": "IIR",
+                        "flags": "flo_slider",
+                        "min": 1e-4,
+                        "max": 1,
+                        "step": 1e-4,
+                        "value": 5e-3,
+                        "default": 5e-3,
+                        "unit": "Percentage"
+                      },
+                      {
+                        "type": "float",
+                        "name": "iirdamp",
+                        "label": "IIR Damp",
+                        "flags": "flo_slider",
+                        "min": 0,
+                        "max": 1,
+                        "step": 1e-4,
+                        "value": 0,
+                        "default": 0,
+                        "unit": "Percentage"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
