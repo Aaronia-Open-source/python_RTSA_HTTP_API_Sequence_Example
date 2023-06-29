@@ -61,7 +61,7 @@ def main():
         filename = measurement["FileName"]
         filename = filename.replace("#f", str(measurement["CenterFrequency"]))
         filename = filename.replace("#t", str(int(time.time())))
-        filename = filename.replace("#rt", str(measurement["RecordDuration"]))
+        filename = filename.replace("#rd", str(measurement["RecordDuration"]))
 
         set_filewriter_file_name(filename, m_filewriter_block_name);
         set_filewriter_active(True, m_filewriter_block_name)
