@@ -19,20 +19,20 @@ Before using this repository, make sure you have the following prerequisites in 
 
 1. Clone this repository to your local machine:
 
-git clone https://github.com/Aaronia-Open-source/python_RTSA_HTTP_API_Sequence_Example
+`git clone https://github.com/Aaronia-Open-source/python_RTSA_HTTP_API_Sequence_Example`
 
 2. Navigate to the project directory:
-cd python_RTSA_HTTP_API_Sequence_Example
+`cd python_RTSA_HTTP_API_Sequence_Example`
 
 ## Usage
 
-1. Launch the Aaronia RTSA Suite Pro software and open the RTSA_Python_remote_automation.rmix mission. Be sure to connect a Spectran V6 device.
+1. Launch the Aaronia RTSA Suite Pro software and open the `RTSA_Python_remote_automation.rmix` mission. Be sure to connect a Spectran V6 device.
 2. Adjust the measurement series as desired.
 3. Launch the rtsa_record_sequence.py file.
 
 ## Background info on the API
 
-To illustrate some basic HTTP API calls the file req_autorecord_secquence.http get's you started.
+To illustrate some basic HTTP API calls the file `req_autorecord_secquence.http` get's you started.
 
 ## Output file format
 If you wish to transform the output RTSA file records to another file format please see the RTSAFileTool in your installation directory. It also offers RAQ IQ File output. It is a CLI tool that can be included in scripting for automation.
